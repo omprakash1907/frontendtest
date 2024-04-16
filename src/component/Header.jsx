@@ -4,87 +4,107 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 
-function MyVerticallyCenteredModal(props) {
-    return (
-        <Modal
-            {...props}
-            size="md"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
 
-            <Modal.Body>
-                <h2 className='logoclg  border-bottom text-center fw-bold  pb-4'>
-                    TasteShare
-                </h2>
-                <h4 className='text-center py-3'>Create your TasteShare account</h4>
-                <form action="">
-                    <Form.Group className="mb-3" controlId="floatingPassword">
-                        <Form.Label>User Name</Form.Label>
-                        <Form.Control type="text" placeholder="First Name" />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="floatingInput">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="name@example.com" />
-                    </Form.Group>
-
-                    <Form.Group controlId="floatingPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                </form>
-                <button className='btn btn-lg broder border-dark text-secondary col-12 mt-3'>SignUp </button>
-                <p className='text-center text-secondary mt-3'>By signing up, you accept our terms and privacy policy.</p>
-                <p className='text-center text-dark mt-3'>Already have an account?
-                    <span className='text-primary fw-bold'> Log in</span></p>
-            </Modal.Body>
-
-        </Modal>
-    );
-}
-
-function LoginModal(props) {
-    return (
-        <Modal
-            {...props}
-            size="md"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Body>
-                <Modal.Body>
-                    <h2 className='logoclg  border-bottom text-center fw-bold  pb-4'>
-                        TasteShare
-                    </h2>
-                    <h4 className='text-center py-3'>Login into TasteShare </h4>
-
-                    <FloatingLabel
-                        controlId="floatingInput"
-                        label="Email address"
-                        className="mb-3"
-                    >
-                        <Form.Control type="email" placeholder="name@example.com" />
-                    </FloatingLabel>
-                    <FloatingLabel controlId="floatingPassword" label="Password">
-                        <Form.Control type="password" placeholder="Password" />
-                    </FloatingLabel>
-                    <p className='text-primary fw-bold mt-3'>Forget Password ?</p>
-                    <button className='btn btn-lg broder border-dark text-secondary col-12 '>Login </button>
-                    <p className='text-center text-dark mt-3'>Don't have an account?
-                        <span className='text-primary fw-bold'>
-                            Sign up for free</span></p>
-                </Modal.Body>
-            </Modal.Body>
-        </Modal>
-    );
-}
 const Header = () => {
+
+
+
 
     const [modalShow, setModalShow] = React.useState(false);
     const [loginModalShow, setLoginModalShow] = useState(false);
 
+    function MyVerticallyCenteredModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="md"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
     
+                <Modal.Body>
+                    <h2 className='logoclg  border-bottom text-center fw-bold  pb-4'>
+                        TasteShare
+                    </h2>
+                    <h4 className='text-center py-3'>Create your TasteShare account</h4>
+                    <form action="">
+    
+                        <div class="form-floating mb-3">
+                            <input type="name" class="form-control" id="floatingInput" placeholder="Enter Name"></input>
+                            <label for="floatingInput"> Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="Enter Mobile Number"></input>
+                            <label for="floatingInput"> Mobile</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="Enter Email-Id"></input>
+                            <label for="floatingInput"> Email-ID</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"></input>
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div className="d-flex gap-4 mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" ></input>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" checked></input>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                        <button className='btn btn-lg broder border-dark text-secondary col-12 mt-3'>SignUp </button>
+                        <p className='text-center text-secondary mt-3'>By signing up, you accept our terms and privacy policy.</p>
+                        <p className='text-center text-dark mt-3'>Already have an account?
+                            <span className='text-primary fw-bold' onClick={() => {setModalShow(false); setLoginModalShow(true);}}> Log in</span></p>
+                    </form>
+                </Modal.Body>
+    
+            </Modal>
+        );
+    }
+
+    function LoginModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="md"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Body>
+                    <Modal.Body>
+                        <h2 className='logoclg  border-bottom text-center fw-bold  pb-4'>
+                            TasteShare
+                        </h2>
+                        <h4 className='text-center py-3'>Login into TasteShare </h4>
+                        <form action="">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="floatingInput" placeholder="Enter Mobile Number"></input>
+                                <label for="floatingInput"> Mobile</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"></input>
+                                <label for="floatingPassword">Password</label>
+                            </div>
+    
+                            <p className='text-primary fw-bold mt-3'>Forget Password ?</p>
+                            <button className='btn btn-lg broder border-dark text-secondary col-12 '>Login </button>
+                            <p className='text-center text-dark mt-3'>Don't have an account?
+                                <span className='text-primary fw-bold' onClick={() => {setModalShow(true); setLoginModalShow(false);}}>
+                                    Sign up for free</span></p>
+                        </form>
+                    </Modal.Body>
+                </Modal.Body>
+            </Modal>
+        );
+    }
 
     return (
         <>
@@ -114,3 +134,6 @@ const Header = () => {
 }
 
 export default Header
+
+
+
